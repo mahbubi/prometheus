@@ -37,5 +37,16 @@ sudo systemctl enable prometheus
 sudo systemctl enable alertmanager
 sudo systemctl start prometheus
 sudo systemctl start alertmanager
-echo "################ Verify Service prometheus ################"
-sudo systemctl status prometheus
+echo "################ Verify Service prometheus & alertmanager ################"
+STATUS1="$(systemctl is-active prometheus.service)"
+STATUS2="$(systemctl is-active alertmanager.service)"
+if [ "${STATUS1}" = "active" ]; then
+    echo "Service Prometheus = Active"
+else 
+    echo "Service prometheus not running.... Please Check Your Config "   
+fi
+if [ "${STATUS2}" = "active" ]; then
+    echo "Service AlertManager = Active"
+else 
+    echo "Service alertmanager not running.... Please Check Your Config "  
+fi
