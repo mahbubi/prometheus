@@ -6,7 +6,7 @@ tar -xvf alertmanager-0.25.0.linux-amd64.tar.gz
 echo "################ Deploy Prometheus ################"
 sudo useradd --no-create-home --shell /bin/false prometheus
 sudo mkdir -p /etc/prometheus
-sudo mkdir -p /data/prometheus
+sudo mkdir -p /var/lib/prometheus
 sudo cp file-yaml/prometheus.yml /etc/prometheus/
 sudo cp prometheus-2.37.5.linux-amd64/prometheus /usr/local/bin/
 sudo cp prometheus-2.37.5.linux-amd64/promtool /usr/local/bin/
